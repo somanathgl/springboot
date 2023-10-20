@@ -1,0 +1,7 @@
+package com.sts5;
+
+@org.springframework.stereotype.Controller
+public class Controller {
+
+	public String home
+}

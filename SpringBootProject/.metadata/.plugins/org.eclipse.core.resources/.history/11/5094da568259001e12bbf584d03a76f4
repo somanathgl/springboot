@@ -1,0 +1,6 @@
+package com.springboot.rest.books.entities;
+
+
+public class Book {
+	
+}

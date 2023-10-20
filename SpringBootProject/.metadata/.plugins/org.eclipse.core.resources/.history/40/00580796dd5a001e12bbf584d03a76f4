@@ -1,0 +1,22 @@
+package com.springboot.rest.Controller;
+
+import org.hibernate.grammars.hql.HqlParser.IsEmptyPredicateContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FileuploadController {
+
+	@PostMapping("/upload-file")
+	public ResponseEntity<String>uploadfile(){
+		
+		return ResponseEntity.ok("working");
+		
+	}
+	
+		
+	
+}

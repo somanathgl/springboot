@@ -1,0 +1,8 @@
+package com.sts5.controller;
+
+org.springframework.stereotype.Controller
+
+
+public class Controller {
+
+}

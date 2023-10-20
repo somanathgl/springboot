@@ -1,0 +1,61 @@
+package com.springboot.rest.books;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.rest.books.entities.Book;
+import com.springboot.rest.books.serviecs.service;
+
+@RestController
+public class BookController {
+	@Autowired
+	private service Service;
+	
+	@GetMapping("/test")
+	public List<Book> getbook() {
+		
+		return this.Service.getallbooks();
+		
+	}
+	
+	@GetMapping("/test/{id}")
+	public Book takebookbyId(@PathVariable("id")int id) {
+		
+		return this.Service.getbookbyId(id);
+	}
+	
+	@PostMapping("/test")
+	public Book addbook(@RequestBody Book book) {
+		Book b = this.Service.addbook(book);
+		
+		return b;
+		
+	}
+	
+	@DeleteMapping("/test/{bookid}")
+	public void deletebook(@PathVariable("bookid")int bookid) {
+		this.Service.deletebook(bookid);
+		
+	}
+	
+	@PutMapping("/test/{bookid}")
+	public Book update(@RequestBody Book book,@PathVariable("bookid")int bookid) {
+		
+		this.Service.update(bookid);
+		return book;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,66 @@
+package com.springboot.rest.books.serviecs;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.data.repository.support.Repositories;
+import org.springframework.stereotype.Component;
+import com.springboot.rest.books.entities.Book;
+import com.springboot.rest.books.entities.Repository;
+
+@Component
+public class service {
+	
+	private Repository repository;
+	private static List<Book>list=new ArrayList<>();
+	
+	static {
+		list.add(new Book(10,"chemistry","pqr"));
+		list.add(new Book(11,"English","lmn"));
+		list.add(new Book(12,"History","xyz"));
+	}
+		public List<Book> getallbooks(){
+			
+			return this.repository.findAll(Book);
+		}
+		
+		public Book getbookbyId(int id) {
+			Book book=null;
+			try {
+				book = list.stream().filter(e-> e.getId()==id).findFirst().get();
+			}
+			catch (Exception e) {
+				System.out.println("not found");
+				e.printStackTrace();
+			}
+			
+			return book;
+			
+		}
+		
+		public Book addbook(Book b)
+		{
+			 list.add(b);
+			return b;
+		}
+
+		public void deletebook( int bookid) {
+			List<Book> list1 = list.stream().filter(e->e.getId()==bookid).collect(Collectors.toList());
+			
+		}
+		
+		public void update(Book book,int bookid) {
+			
+		list= list.stream().map(b->{
+		 if(b.getId()==bookid)
+		 {
+			 b.setName(b.getName());
+			 b.setAuthor(b.getAuthor());
+		 }
+		 return b;
+		}).collect(Collectors.toList());
+}
+}
+
+

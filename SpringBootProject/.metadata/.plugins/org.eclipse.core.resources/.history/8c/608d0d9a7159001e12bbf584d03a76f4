@@ -1,0 +1,45 @@
+package com.springboot.rest.books.entities;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Books {
+ 
+	private String bookid;
+	private String bookname;
+	private String bookauthor;
+	
+	public Books(String bookid, String bookname, String bookauthor) {
+		super();
+		this.bookid = bookid;
+		this.bookname = bookname;
+		this.bookauthor = bookauthor;
+	}
+	public Books() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public String getBookid() {
+		return bookid;
+	}
+	public void setBookid(String bookid) {
+		this.bookid = bookid;
+	}
+	public String getBookname() {
+		return bookname;
+	}
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
+	}
+	public String getBookauthor() {
+		return bookauthor;
+	}
+	public void setBookauthor(String bookauthor) {
+		this.bookauthor = bookauthor;
+	}
+	@Override
+	public String toString() {
+		return "Books [bookid=" + bookid + ", bookname=" + bookname + ", bookauthor=" + bookauthor + "]";
+	}
+	
+}

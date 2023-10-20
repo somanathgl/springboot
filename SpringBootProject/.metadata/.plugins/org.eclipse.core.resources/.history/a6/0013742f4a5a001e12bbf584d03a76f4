@@ -1,0 +1,5 @@
+package com.springboot.rest.books.Dao;
+
+public interface bookRepository {
+
+}

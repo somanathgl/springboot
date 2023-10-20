@@ -1,0 +1,59 @@
+package com.springboot.rest.books.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Author_Details")
+public class Author {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String firstame;
+	private String lastname;
+	private String language;
+	public Author(int id, String firstame, String lastname, String language) {
+		super();
+		this.id = id;
+		this.firstame = firstame;
+		this.lastname = lastname;
+		this.language = language;
+	}
+	public Author() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFirstame() {
+		return firstame;
+	}
+	public void setFirstame(String firstame) {
+		this.firstame = firstame;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	@Override
+	public String toString() {
+		return "Author [id=" + id + ", firstame=" + firstame + ", lastname=" + lastname + ", language=" + language
+				+ "]";
+	}
+
+}

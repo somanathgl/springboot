@@ -1,0 +1,9 @@
+package com.springboot.rest.books.Dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.springboot.rest.books.entities.Book;
+
+public interface Repository extends CrudRepository<Book, Integer> {
+
+}

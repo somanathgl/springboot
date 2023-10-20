@@ -1,0 +1,66 @@
+package com.springboot.rest.books.entities;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Author_Details")
+public class Author {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int author_id;
+	private String firstname;
+	private String lastname;
+	private String language;
+	
+	@OneToOne(mappedBy = "author")
+	@JsonBackReference
+	private Book book;
+	public Author(int id, String firstname, String lastname, String language) {
+		super();
+		this.author_id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.language = language;
+	}
+	public Author() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getId() {
+		return author_id;
+	}
+	public void setId(int id) {
+		this.author_id = id;
+	}
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstame) {
+		this.firstname = firstame;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	@Override
+	public String toString() {
+		return "Author [author_id=" + author_id + ", firstname=" + firstname + ", lastname=" + lastname + ", language=" + language
+				+ "]";
+	}
+
+}

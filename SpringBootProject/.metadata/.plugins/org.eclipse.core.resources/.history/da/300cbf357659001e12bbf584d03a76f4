@@ -1,0 +1,23 @@
+package com.springboot.rest.books;
+
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.rest.books.entities.Books;
+
+@RestController
+public class Controller {
+	
+@GetMapping("/books")
+	public Books getbooks(){
+	Books book=new Books();
+	book.setId(101);
+	book.setName("Thory of machine");
+	book.setAtuthor("RS Agrwal");
+	
+		return book;
+	
+		
+	}
+}
